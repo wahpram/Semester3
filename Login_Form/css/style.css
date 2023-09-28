@@ -1,0 +1,32 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+table, th, td{
+    margin-top: 10px;
+    border: 1px solid black;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+.box{
+    padding: 10px;
+}
+
+label{
+    display: block;
+}
+
+p{
+    font-size: 10px;
+    color: red;
+}
+
+.line > label{
+    display: inline-block;
+}
+
+.warna{
+    background-color: pink;
+}
