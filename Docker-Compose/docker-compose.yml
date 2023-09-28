@@ -1,0 +1,33 @@
+version: "3.9"
+
+services:
+    app_env:
+        build: 
+            context: "./"
+            dockerfile: Dockerfile
+        volumes:
+            - ./src:/var/www/html
+        ports:
+            - 8080:80
+
+    mysql_db:
+        image: mysql:latest
+        container_name: mysql_db
+        command: --default-authentication-plugin=mysql_native_password
+        restart: always
+        environment:
+            MYSQL_ROOT_PASSWORD: wahyu321
+            MYSQL_DATABASE: prodi
+            MYSQL_USER: wahyu-pramana
+            MYSQL_PASSWORD: wahyu321
+        volumes:
+            - ./src/db/prodi.sql:/docker-entrypoint-initdb.d/prodi.sql
+
+    phpmyadmin:
+        image: phpmyadmin:latest
+        container_name: phpmyadmin
+        restart: always
+        ports:
+            - 8081:80
+        environment:
+            - PMA_ARBITRARY=1
